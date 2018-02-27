@@ -1,0 +1,17 @@
+version: '2'
+services:
+  dev:
+    image: node:9.6.1
+    command: bash
+    working_dir: /app
+    volumes:
+    - .:/app
+    ports:
+      - "8229:8229"
+
+  index:
+    image: node:9.5
+    command: node index.js
+    user: $NODE_USER
+    volumes:
+      - .:/app
