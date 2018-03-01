@@ -19,8 +19,25 @@ const board = [
   [CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY],
   [CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY],
 ]
+module.exports = {
+  getBoard,
+  PLAYER_A,
+  PLAYER_B,
+  playGame,
+  checkForVictory
+}
+function getBoard(){
+  return [
+    [CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY],
+    [CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY],
+    [CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY],
+    [CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY],
+    [CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY],
+    [CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY],
+  ]
+}
 
-playGame()
+//playGame()
 
 function playGame() {
   const state = {
@@ -197,7 +214,6 @@ function checkForVictory(state,row,col){
     }
   }
 }
-
 function getAdjacent(state,row,col,row_inc,col_inc){
   if(cellVal(state,row,col) == cellVal(state,row+row_inc,col+col_inc)){
     return 1+getAdjacent(state,row+row_inc,col+col_inc,row_inc,col_inc);
