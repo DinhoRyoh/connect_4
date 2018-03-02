@@ -1,0 +1,91 @@
+html,body{
+  font-family: roboto;
+  background: #353b48;
+  margin: 0;
+  text-align: -webkit-center;
+  color: #f5f6fa;
+}
+
+p{
+  color: red;
+}
+
+#board{
+  border: 1px solid black;
+  background: #1B9CFC;
+  border-radius: 10px;
+  padding: 10px;
+  border-spacing: 9px;
+  box-shadow: 13px 11px 30px black;
+}
+#board td {
+  padding: 0;
+  border: 1px solid black;
+  width: 70px;
+  height: 70px;
+  vertical-align: center;
+  margin: 0;
+  border-radius: 100%;
+  background: #dff9fb;
+  transition: background-color 0.5s;
+}
+
+#board td:hover{
+  background-color: #33d9b2;
+}
+
+#victoire{
+  position: absolute;
+  z-index: 2;
+  display:flex;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+  background: rgba(0,0,0,0.5);
+}
+input{
+  padding: 5px;
+  color:white;
+  border: none;
+  border-bottom: 1px solid white;
+  background: #353b48;
+}
+input:focus{
+  outline:0;
+}
+#textVictoire{
+  font-size: 131px;
+  color:white;
+}
+
+#retourVictoire{
+  font-size: 53px;
+  color: #ffda79;
+  text-decoration: none;
+}
+#listPartie{
+  border: 1px solid black;
+  padding: 10px;
+  background-color: white;
+}
+
+#listPartie th{
+  color: black;
+  border-bottom: 1px solid black;
+}
+#listPartie td{
+  border: 1px solid black;
+  border:none;
+  transition: background-color 0.5s;
+  color: black;
+}
+#listPartie td a{
+  text-decoration: none;
+}
+#listPartie td:hover{
+  background-color : #ff793f;
+}
