@@ -1,6 +1,6 @@
 # connect_4
 
-##PREREQUIS
+## PREREQUIS
 
 - chalk
 - compression
@@ -62,4 +62,4 @@ docker-compose up server
 ```
 Ensuite aller sur http://localhost:8000
 
-#ENJOY
+# ENJOY
