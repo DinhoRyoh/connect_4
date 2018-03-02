@@ -12,7 +12,6 @@ const {
   check
 } = require('./server')
 
-//const routes = require('./routes')
 const router = express.Router()
 
 module.exports = router
@@ -27,20 +26,14 @@ app.use((req, res, next) => {
   next()
 })
 
-// const publicRoot = '/projet/public'
-// app.use(express.static('/static', express.static(publicRoot)))
 app.use('/static',express.static('public'));
-
 app.use(router)
-
-
 
 router.post('/game', (req, res) => {
     createGame(req.body["p1"],req.body["p2"]).then( result => {
       res.redirect('/game/'+result._id)
     })
 })
-
 router.post('/game/:id/:row/:col/:turn', (req, res) => {
   var lastMove = []
   if (req.params.col !== null) {
@@ -55,17 +48,14 @@ router.post('/game/:id/:row/:col/:turn', (req, res) => {
         return saveGameTurn(req.params.id,+req.params.turn+1,board)
       }
     }).then((result) => {
-      console.log(lastMove.board);
       var i = 6
       var flag = true
       while(flag){
         i--
-        console.log(lastMove.board[i][+req.params.col-1]);
         if (lastMove.board[i][+req.params.col-1] == 0) {
           flag = false
         }
       }
-      console.log("index " + i);
       if (check(lastMove,i+1,+req.params.col-1)) {
         console.log('victoire');
         res.send({fini : true, turn : +req.params.turn+1})
@@ -79,10 +69,6 @@ router.post('/game/:id/:row/:col/:turn', (req, res) => {
     })
   }
 })
-
-
-
-
 router.get('/', function(req, res){
   listAllGames().then(games =>{
       const html = renderGames(games)
@@ -92,15 +78,12 @@ router.get('/', function(req, res){
     res.status(500).send('Oops !')
   })
 });
-
 router.post('/ping', (req, res) => {
   const value = req.body ? req.body.value : null
   console.log({
-    // value: String(value).split('').reverse().join('')
     response: value
   })
   res.send({
-    // value: String(value).split('').reverse().join('')
     response: value
   })
 })
@@ -119,7 +102,6 @@ router.get('/game/:id/json', (req, res) => {
       res.status(500).send({error: 'server error'})
     })
 })
-
 router.get('/game/:id', (req, res) =>{
   findGame(req.params.id).then( result => {
     if (result === null) {

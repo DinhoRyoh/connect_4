@@ -1,5 +1,3 @@
-// l'URL des data json de la partie est la même URL que la
-// page + '.json'
 var boardJson
 fetch(window.location.href + '/json',{
   headers: {

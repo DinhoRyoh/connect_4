@@ -198,7 +198,6 @@ function endGame(state,player,i,j){
 
 
 function checkForVictory(state,row,col){
-  console.log("indexes ",row,col);
   if(getAdjacent(state,row,col,0,1)+getAdjacent(state,row,col,0,-1) > 2){
     return true;
   } else {
